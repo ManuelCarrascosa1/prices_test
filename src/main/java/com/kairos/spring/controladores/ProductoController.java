@@ -40,49 +40,6 @@ public class ProductoController extends HttpServlet {
 	}
 	
 	
-	
-	/*@RequestMapping("/product/id/{id}/producto/{ProductId}")
-	public Producto busquedaparametros(@PathVariable long id,@PathVariable long ProductId, Model model) {
-		Producto producto = servicio.findById(id);
-		if (producto != null) {
-			Producto producto2= servicio.findByProductId(ProductId);
-			if(producto2 != null) {
-				model.addAttribute("datosproducto", producto2);
-				return producto2;
-			}
-			
-		} 
-		return producto;
-	}*/
-	
-	
-	
-	@GetMapping("/product/busqueda/{id}")
-	public String editarProductoForm(@PathVariable long id, Model model) {
-		Producto producto = servicio.findById(id);
-		if (producto != null) {
-			model.addAttribute("listaProducto", producto);
-			return "list";
-		} else
-			return "error";
-	}
-	
-	
-	
-	@RequestMapping("/product/brand/{brandId}/producto/{ProductId}")
-	public List<Producto>  busquedaparametros2(@PathVariable long brandId,@PathVariable long ProductId, Model model) {
-		List<Producto> producto = servicio.findByBranId(brandId);
-		for(int i=0; i<producto.size();i++) {
-			if(producto.get(i) != null) {
-				List<Producto> producto2= servicio.findByProductId(ProductId);
-				model.addAttribute("datosproducto", producto2);
-				return producto2;
-			}
-		}
-		
-		return producto;
-	}
-	
 
 	@SuppressWarnings("unused")
 	@RequestMapping("/product/brand/{brandId}/producto/{ProductId}/startdate/{startDate}")
