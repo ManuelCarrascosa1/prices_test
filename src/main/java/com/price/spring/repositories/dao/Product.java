@@ -1,4 +1,4 @@
-package com.test.spring.repositorios.dao;
+package com.price.spring.repositories.dao;
 
 
 import java.time.LocalDateTime;
@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Producto")
-public class Producto {
+public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
@@ -27,9 +27,9 @@ public class Producto {
 	private LocalDateTime LastUpdate;
 	private String LastUpdateBy;
 	
-	public Producto() {}
+	public Product() {}
 
-	public Producto(long id, long branId, LocalDateTime startDate, LocalDateTime endDate, int priceList, long productId,
+	public Product(long id, long branId, LocalDateTime startDate, LocalDateTime endDate, int priceList, long productId,
 			int priority, double price, String currency, LocalDateTime lastUpdate, String LastUpdateBy) {
 		super();
 		this.id = id;
